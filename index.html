@@ -266,6 +266,52 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
 
 .view[hidden] { display: none !important; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* Brand template: "Performance Actually" dark tile. Black ground, thick red diagonal frame cropped at the edge, uppercase SemiBold headline with the last phrase in a Regular highlight box. Red colourway for the audit block. */
+:root { --frame-card: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpolygon points='76,9 191,9 124,191 9,191' fill='none' stroke='%23A5000A' stroke-width='14'/%3E%3C/svg%3E");
+  --frame-band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 560'%3E%3Cpolygon points='212,20 540,20 348,540 20,540' fill='none' stroke='%23A5000A' stroke-width='36'/%3E%3C/svg%3E");
+  --frame-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 560'%3E%3Cpolygon points='212,20 540,20 348,540 20,540' fill='none' stroke='%23F4F4F4' stroke-width='36'/%3E%3C/svg%3E");
+  --frame-black: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 560'%3E%3Cpolygon points='212,20 540,20 348,540 20,540' fill='none' stroke='%230F1312' stroke-width='36'/%3E%3C/svg%3E"); }
+.theme-band { --surface: #1b201f; }
+
+/* headline lockup */
+.h2, .h1 { text-transform: uppercase; letter-spacing: -.005em; }
+.h1 { font-size: 56px; line-height: 64px; }
+@media (max-width: 767px) { .h1 { font-size: 32px; line-height: 40px; } }
+.h1 .hl, .h2 .hl { font-weight: 400; padding: 0 .2em; }
+
+/* thicker core-element frames, as in the templates */
+.frame-art polygon { stroke-width: 30; vector-effect: none; }
+@media (max-width: 767px) { .frame-art polygon { stroke-width: 22; } .hero .frame-art { opacity: .3; } }
+
+/* blocks: band sections carry a big cropped frame */
+.theme-band, #audit { position: relative; overflow: hidden; }
+.theme-band > .wrap, #audit > .wrap { position: relative; z-index: 1; }
+.theme-band::before { content: ""; position: absolute; z-index: 0; right: -220px; top: 32px; width: 560px; height: 560px; background: var(--frame-band) no-repeat center / contain; pointer-events: none; }
+#audit::before, #audit::after { content: ""; position: absolute; z-index: 0; width: 560px; height: 560px; background: no-repeat center / contain; pointer-events: none; }
+#audit::before { left: -300px; bottom: -260px; background-image: var(--frame-white); }
+#audit::after { right: -260px; top: -200px; background-image: var(--frame-black); opacity: .55; }
+@media (max-width: 767px) { .theme-band::before { width: 340px; height: 340px; right: -190px; top: -90px; } #audit::before, #audit::after { width: 340px; height: 340px; } }
+
+/* card blocks: template tile */
+.card, .step, .stat { position: relative; overflow: hidden; background: var(--neutral-black); border: 1px solid var(--line); isolation: isolate; }
+.card::after, .step::after, .stat::after { content: ""; position: absolute; z-index: -1; right: -58px; bottom: -84px; width: 168px; height: 168px; background: var(--frame-card) no-repeat center / contain; pointer-events: none; }
+.card, .step { padding-bottom: 72px; }
+.card-plain { padding-bottom: 32px; }
+.card-plain::after { display: none; }
+.card h3, .step h3 { text-transform: uppercase; letter-spacing: .01em; }
+.stat .big, .case-big { text-transform: uppercase; letter-spacing: -.005em; }
+.stat { padding-bottom: 32px; }
+.stat::after { right: -70px; bottom: -100px; }
+.step::before { width: fit-content; padding: 2px 10px; background: var(--accent); color: var(--on-accent); font-weight: 600; letter-spacing: .06em; }
+
+/* case cards: template tile as the header, data underneath */
+.case { background: var(--surface-raised); overflow: hidden; }
+.case-top { position: relative; overflow: hidden; isolation: isolate; background: var(--neutral-black); padding: 32px 88px 32px 32px; border-bottom: 1px solid var(--line); min-height: 196px; align-content: start; }
+.case-top::after { content: ""; position: absolute; z-index: -1; right: -78px; top: 28px; width: 168px; height: 168px; background: var(--frame-card) no-repeat center / contain; pointer-events: none; }
+.case-body { padding-top: 24px; }
+.case-big { font-size: 30px; line-height: 38px; }
+@media (max-width: 767px) { .case-top { padding-right: 96px; min-height: 0; } .case-big { font-size: 28px; line-height: 36px; } }
 </style>
 </head>
 <body>
@@ -356,7 +402,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     <div class="wrap">
       <div class="sec-head">
         <span class="label">The problem</span>
-        <h2 class="h2">Your cost per lead looks fine. Your cost per customer probably doesn't.</h2>
+        <h2 class="h2">Your cost per lead looks fine. Your cost per customer <span class="hl">probably doesn't.</span></h2>
       </div>
       <div class="grid-4">
         <div class="symptom"><h3 class="h4">Wasted sales time</h3><p class="muted">Your sales team spends its week chasing leads that were never going to buy.</p></div>
@@ -372,7 +418,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     <div class="wrap">
       <div class="sec-head">
         <span class="label">How we work</span>
-        <h2 class="h2">Here's how we'll work together</h2>
+        <h2 class="h2">Here's how we'll <span class="hl">work together</span></h2>
       </div>
       <div class="steps">
         <div class="step"><h3 class="h4">We look at everything first</h3><p class="muted">Tracking, ad accounts and landing pages. You get a written list of where the budget leaks and what your CAC really is.</p></div>
@@ -386,7 +432,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     <div class="wrap">
       <div class="sec-head">
         <span class="label">Receipts</span>
-        <h2 class="h2">What happened when clients fixed the signal</h2>
+        <h2 class="h2">What happened when clients <span class="hl">fixed the signal</span></h2>
       </div>
       <div class="grid-3">
         <article class="case">
@@ -418,7 +464,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     <div class="wrap">
       <div class="sec-head">
         <span class="label">One system</span>
-        <h2 class="h2">Every channel stands on tracking and data</h2>
+        <h2 class="h2">Every channel stands on <span class="hl">tracking and data</span></h2>
         <p class="b1 muted">Seven services, built to work together. Pick the problem you recognise.</p>
       </div>
       <div class="system" id="systemHome"></div>
@@ -429,7 +475,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     <div class="wrap">
       <div class="sec-head">
         <span class="label">Why Reformance</span>
-        <h2 class="h2">What you get with us that you didn't get before</h2>
+        <h2 class="h2">What you get with us that you <span class="hl">didn't get before</span></h2>
       </div>
       <div class="tablewrap">
         <table class="compare">
@@ -458,7 +504,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     <div class="wrap">
       <div class="sec-head">
         <span class="label">Fit</span>
-        <h2 class="h2">We're a good fit if...</h2>
+        <h2 class="h2">We're a <span class="hl">good fit</span> if...</h2>
       </div>
       <div class="grid-2 fit">
         <div class="card"><h3 class="h4">A fit if you have</h3>
@@ -485,7 +531,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
 
   <section class="pad">
     <div class="wrap">
-      <div class="sec-head"><span class="label">Questions</span><h2 class="h2">Before you book</h2></div>
+      <div class="sec-head"><span class="label">Questions</span><h2 class="h2">Before you <span class="hl">book</span></h2></div>
       <div class="faq">
         <details><summary>How much does it cost?</summary><p class="ans">The audit is free. Management is a monthly fee plus a share of ad spend, quoted after the audit once we know your scope.</p></details>
         <details><summary>Is there a minimum term?</summary><p class="ans">We work in quarters. Compounding results need a runway, so we don't take one-month tests.</p></details>
@@ -510,7 +556,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   </section>
   <section class="pad">
     <div class="wrap">
-      <div class="sec-head"><span class="label">How it fits</span><h2 class="h2">Every channel stands on tracking and data</h2></div>
+      <div class="sec-head"><span class="label">How it fits</span><h2 class="h2">Every channel stands on <span class="hl">tracking and data</span></h2></div>
       <div class="system" id="systemHub"></div>
     </div>
   </section>
@@ -573,7 +619,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     <div class="wrap two-col">
       <div><span class="label">Why we exist</span></div>
       <div style="display:grid;gap:20px">
-        <h2 class="h2">We started Reformance to give clients the honest numbers we wished agencies had shown them.</h2>
+        <h2 class="h2">We started Reformance to give clients the <span class="hl">honest numbers</span> we wished agencies had shown them.</h2>
         <p class="b1 muted">At Google, Sergey and Henry worked with businesses of every size and the agencies that ran their accounts. Too often those agencies did what they were told, avoided responsibility for the outcome and hid behind vanity metrics.</p>
         <p class="b1 muted">So we built an agency that works from the real numbers, even when they're ugly. If you want to change, you have to face the real figures first.</p>
       </div>
@@ -581,7 +627,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   </section>
   <section class="pad theme-band">
     <div class="wrap">
-      <div class="sec-head"><span class="label">Founders</span><h2 class="h2">Two ex-Google operators</h2></div>
+      <div class="sec-head"><span class="label">Founders</span><h2 class="h2">Two <span class="hl">ex-Google</span> operators</h2></div>
       <div class="grid-2 founders">
         <div class="person"><div class="avatar" aria-hidden="true">S</div><h3 class="h4">Sergey Gordeev</h3><p class="muted">Co-founder and General Manager. Ex-Google Dublin, Large Customer Sales.</p></div>
         <div class="person"><div class="avatar" aria-hidden="true">H</div><h3 class="h4">Henry-Jörgen Rautits</h3><p class="muted">Co-founder. Ex-Google, Google Ads strategy.</p></div>
@@ -590,7 +636,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   </section>
   <section class="pad">
     <div class="wrap">
-      <div class="sec-head"><span class="label">Team</span><h2 class="h2">The people on your account</h2></div>
+      <div class="sec-head"><span class="label">Team</span><h2 class="h2">The people on <span class="hl">your account</span></h2></div>
       <div class="team">
         <div class="person"><div class="avatar" aria-hidden="true">V</div><h3 class="h4">Vika</h3><p class="b3 muted">Campaign manager</p></div>
         <div class="person"><div class="avatar" aria-hidden="true">H</div><h3 class="h4">Hendrik</h3><p class="b3 muted">Tracking and analytics</p></div>
@@ -602,7 +648,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   </section>
   <section class="pad theme-band">
     <div class="wrap">
-      <div class="sec-head"><span class="label">How we run your account</span><h2 class="h2">Clarity, predictability, accountability</h2></div>
+      <div class="sec-head"><span class="label">How we run your account</span><h2 class="h2">Clarity, predictability, <span class="hl">accountability</span></h2></div>
       <div class="grid-3">
         <div class="card"><h3 class="h4">Clarity</h3><p class="muted">One account structure and one set of KPIs everyone agrees on, reported in CAC and pipeline.</p></div>
         <div class="card"><h3 class="h4">Predictability</h3><p class="muted">Benchmarked conversion rates from click to profit, so a budget turns into a forecast.</p></div>
@@ -631,7 +677,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   <div class="wrap offer-grid">
     <div>
       <span class="label" style="color:var(--neutral-white)">Revenue leak audit</span>
-      <h2 class="h2" style="margin-top:16px">Find out what your CAC really is</h2>
+      <h2 class="h2" style="margin-top:16px">Find out what your <span class="hl">CAC really is</span></h2>
       <p class="b1" style="margin-top:16px;color:var(--red-pale)">We'll show you where budget leaks, what your CAC really is, and what's realistic. You decide what happens next.</p>
       <ul class="outputs">
         <li><span class="n">01</span><span>Where your ad budget leaks, in writing</span></li>
@@ -847,7 +893,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     el('svcSteps').innerHTML = s.steps.map(function (t) { return '<li><span>' + esc(t) + '</span></li>'; }).join('');
     el('svcProofLabel').textContent = s.proofLabel || 'Proof';
     var proof = s.proof.map(function (p) { return '<div class="card"><h3 class="h4">' + esc(p[0]) + '</h3><p class="muted">' + esc(p[1]) + '</p></div>'; }).join('');
-    if (s.chart) proof = '<div class="card" style="grid-column:1/-1"><span class="label">Yango Drive · cost per booking, Dec 2024 to Aug 2025</span><svg class="chart" id="svcChart" viewBox="0 0 320 170" role="img" aria-label="Cost per booking by month, down 72%"></svg></div>' + proof;
+    if (s.chart) proof = '<div class="card card-plain" style="grid-column:1/-1"><span class="label">Yango Drive · cost per booking, Dec 2024 to Aug 2025</span><svg class="chart" id="svcChart" viewBox="0 0 320 170" role="img" aria-label="Cost per booking by month, down 72%"></svg></div>' + proof;
     el('svcProof').innerHTML = proof;
     if (s.chart) chart(el('svcChart'));
     el('svcFaq').innerHTML = s.faq.map(function (f) { return '<details><summary>' + esc(f[0]) + '</summary><p class="ans">' + esc(f[1]) + '</p></details>'; }).join('');
