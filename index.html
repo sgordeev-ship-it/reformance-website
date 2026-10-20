@@ -312,6 +312,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
 .case-body { padding-top: 24px; }
 .case-big { font-size: 30px; line-height: 38px; }
 @media (max-width: 767px) { .case-top { padding-right: 96px; min-height: 0; } .case-big { font-size: 28px; line-height: 36px; } }
+.cases .chart { max-height: 220px; }
 </style>
 </head>
 <body>
@@ -434,7 +435,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
         <span class="label">Receipts</span>
         <h2 class="h2">What happened when clients <span class="hl">fixed the signal</span></h2>
       </div>
-      <div class="grid-3">
+      <div class="grid-2 cases">
         <article class="case">
           <div class="case-top"><span class="label">Yango Drive · Car rental · UAE</span><span class="case-big">−68% CAC in 8 months</span></div>
           <div class="case-body">
@@ -454,6 +455,13 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
           <div class="case-body">
             <svg class="chart" id="gobChart" viewBox="0 0 320 170" role="img" aria-label="Gross profit up 314% to USD 4.45M and contribution profit up 182% to USD 1.85M against the prior period"></svg>
             <ul class="kpis"><li><b>USD 1.85M</b><span>contribution profit, +182%</span></li><li><b>43.23%</b><span>gross margin</span></li><li><b>95%</b><span>conversion accuracy with server-side tracking</span></li></ul>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-top"><span class="label">3S Money · Fintech · UK, UAE, Europe</span><span class="case-big">−55% CAC</span></div>
+          <div class="case-body">
+            <svg class="chart" id="tsmChart" viewBox="0 0 320 170" role="img" aria-label="Customer acquisition cost before and after, down 55%"></svg>
+            <ul class="kpis"><li><b>−55%</b><span>customer acquisition cost</span></li><li><b>3</b><span>regions: UK, UAE and Europe</span></li><li><b>Fixed</b><span>conversion setup and geo-targeting</span></li></ul>
           </div>
         </article>
       </div>
@@ -749,7 +757,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
       painH: 'Your ads are bidding blind',
       pain: "Without CRM data, Google and Meta chase the cheapest leads they can find. Real CAC per closed deal often runs three to five times higher than cost per lead suggests, and nobody can prove which campaign closed which deal. We fix your tracking before we touch your campaigns. If the data is wrong, every bid is a guess.",
       steps: ['Tracking audit: pixels, Google Tag Manager, consent mode and duplicate conversions.', 'Server-side tracking with a GTM server container and GA4, so ad blockers stop eating your data.', 'Click IDs captured into your CRM for every lead.', 'Lead stages (MQL, SQL, Closed Won) sent back as offline conversions to Google Ads, Meta and LinkedIn.', 'Monitoring and checks after every site release.'],
-      proof: [['Yango Drive', 'Dashboard CPA: USD 93. Real CPA, counting only first rides: USD 741.'], ['LHV Bank', 'Duplicate conversions removed, then a rebuild on clean data cut CPA by 76.67% within two months.'], ['Game of Bricks', 'Server-side tracking at 95% conversion accuracy, even with ad blockers.']],
+      proof: [['Yango Drive', 'Dashboard CPA: USD 93. Real CPA, counting only first rides: USD 741.'], ['LHV Bank', 'Duplicate conversions removed, then a rebuild on clean data cut CPA by 76.67% within two months.'], ['Game of Bricks', 'Server-side tracking at 95% conversion accuracy, even with ad blockers.'], ['3S Money', 'Conversion setup fixed across the UK, UAE and Europe. CAC down 55%.']],
       faq: [['Will it break our site or CRM?', 'Every change is tested before it goes live, and we check tracking again after each site release.'], ['How do you handle GDPR and consent?', 'Consent mode is part of the setup, so tracking respects each visitor\'s choice.'], ['How much developer time does it take?', 'We write the specs and do the tag work. Your developers usually only add a data layer and grant access.'], ['How long until the data is usable?', 'Most setups report clean data within weeks, then the algorithms start learning from it.']] },
     { id: 'google-ads', name: 'Google Ads', short: 'Search, Performance Max, Shopping',
       q: 'We doubled the Google budget. We didn\'t double the customers.',
@@ -760,7 +768,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
       pain: "Over-segmented accounts starve Google's AI of data. We've audited accounts running hundreds of ad groups and over a thousand ads, all pointing at one homepage. Bidding ends up chasing cheap leads instead of buyers.",
       steps: ['Account and tracking audit.', 'Consolidation into a few themes mapped to your revenue streams, so each campaign has enough data to learn.', 'DUALBUILD™ migration: the new structure runs beside the old one, so your main lead source never switches off.', 'VACUUM CLEANER™ bidding in competitive months, steering spend into temporary market gaps.', 'An experiment journal: 2 to 5 tested ideas a month on a fixed share of budget.'],
       chart: true,
-      proof: [['Yango Drive', '−68% CAC in 8 months. Cost per booking −72%, +25% bookings at the same cost after month one, +405% Google Ads ROI.'], ['LHV Bank', '+731% applications and −73% CPA in a regulated market, scaling only the most profitable products.'], ['Game of Bricks', 'Gross profit USD 4.45M (+314%) and contribution profit USD 1.85M (+182%) across 8 markets.']],
+      proof: [['Yango Drive', '−68% CAC in 8 months. Cost per booking −72%, +25% bookings at the same cost after month one, +405% Google Ads ROI.'], ['LHV Bank', '+731% applications and −73% CPA in a regulated market, scaling only the most profitable products.'], ['Game of Bricks', 'Gross profit USD 4.45M (+314%) and contribution profit USD 1.85M (+182%) across 8 markets.'], ['3S Money', '−55% CAC across the UK, UAE and Europe after fixing the conversion setup and geo-targeting.']],
       faq: [['Will a rebuild put our main lead source at risk?', 'No. With DUALBUILD™ the new campaigns run beside the old ones until the numbers prove the switch.'], ['Can you work in a regulated category?', 'Yes. LHV Bank grew in finance, where a compliance error costs more than a bad week.'], ['How soon will we see a change?', 'Yango Drive got 25% more bookings at the same cost after the first month on the new structure.']] },
     { id: 'meta-ads', name: 'Meta Ads', short: 'Lead quality fed back to Meta',
       q: 'Meta says ROAS is up. Finance says show me.',
@@ -882,6 +890,17 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     h += '<rect x="196" y="6" width="8" height="8" fill="var(--neutral-grey-dark)"/>' + txt(208, 14, 'Prior', { s: 10 }) + '<rect x="244" y="6" width="8" height="8" fill="var(--red-core)"/>' + txt(256, 14, 'With us', { s: 10 });
     svg.innerHTML = h;
   })(el('gobChart'));
+  // 3S Money: CAC indexed to 100 before (values not shown, -55% stated)
+  (function (svg) {
+    var b = 140, t = 30, bw = 72, d = [['Before', 100, 'var(--neutral-grey-dark)'], ['With us', 45, 'var(--red-core)']];
+    var h = '<line x1="0" x2="320" y1="' + b + '" y2="' + b + '" stroke="var(--line)"/>';
+    d.forEach(function (r, i) {
+      var x = 56 + i * 136, hh = r[1] / 100 * (b - t);
+      h += '<rect x="' + x + '" y="' + (b - hh) + '" width="' + bw + '" height="' + hh + '" fill="' + r[2] + '"/>' + txt(x + bw / 2, 160, r[0], { a: 'middle', s: 10 });
+    });
+    h += txt(56 + 136 + bw / 2, b - 45 / 100 * (b - t) - 8, '−55%', { a: 'middle', c: 'var(--ink)', w: 600 });
+    svg.innerHTML = h;
+  })(el('tsmChart'));
 
   function renderService(s) {
     el('svcName').textContent = s.name;
