@@ -798,16 +798,16 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   function txt(x, y, t, o) { o = o || {}; return '<text x="' + x + '" y="' + y + '" ' + F + ' font-size="' + (o.s || 11) + '" fill="' + (o.c || 'var(--ink-muted)') + '"' + (o.a ? ' text-anchor="' + o.a + '"' : '') + (o.w ? ' font-weight="' + o.w + '"' : '') + '>' + t + '</text>'; }
   // Yango Drive: cost per booking shape, Dec 2024 to Aug 2025 (values not shown)
   function chart(svg) {
-    var v = [500, 371, 254, 282, 280, 231, 176, 156, 138], m = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
-    var l = 12, r = 308, t = 18, b = 140, max = 550;
+    var v = [100, 74, 51, 56, 56, 46, 35, 31, 28], m = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
+    var l = 12, r = 308, t = 18, b = 140, max = 110;
     var x = function (i) { return l + i * (r - l) / (v.length - 1); }, y = function (n) { return b - n / max * (b - t); };
     var g = '';
-    [0, 250, 500].forEach(function (n) { g += '<line x1="' + l + '" x2="' + r + '" y1="' + y(n) + '" y2="' + y(n) + '" stroke="var(--line)"/>'; });
+    [0, 50, 100].forEach(function (n) { g += '<line x1="' + l + '" x2="' + r + '" y1="' + y(n) + '" y2="' + y(n) + '" stroke="var(--line)"/>'; });
     m.forEach(function (mm, i) { if (i % 2 === 0) g += txt(x(i), 160, mm, { a: 'middle', s: 10 }); });
     var d = v.map(function (n, i) { return (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(n).toFixed(1); }).join('');
     svg.innerHTML = g + '<path d="' + d + '" fill="none" stroke="var(--red-core)" stroke-width="2.5"/>' +
-      '<circle cx="' + x(0) + '" cy="' + y(500) + '" r="4" fill="var(--red-core)"/><circle cx="' + x(8) + '" cy="' + y(138) + '" r="4" fill="var(--neutral-white)"/>' +
-      txt(x(0) + 8, y(500) + 4, 'Start', { c: 'var(--ink)', w: 600 }) + txt(x(8), y(138) - 10, '−72%', { a: 'end', c: 'var(--ink)', w: 600 });
+      '<circle cx="' + x(0) + '" cy="' + y(100) + '" r="4" fill="var(--red-core)"/><circle cx="' + x(8) + '" cy="' + y(28) + '" r="4" fill="var(--neutral-white)"/>' +
+      txt(x(0) + 8, y(100) + 4, 'Start', { c: 'var(--ink)', w: 600 }) + txt(x(8), y(28) - 10, '−72%', { a: 'end', c: 'var(--ink)', w: 600 });
   }
   chart(el('yangoChart'));
   // LHV Bank: applications as a multiple of November (Dec +412%, Jul +731%, case study)
