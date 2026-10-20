@@ -313,6 +313,19 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
 .case-big { font-size: 30px; line-height: 38px; }
 @media (max-width: 767px) { .case-top { padding-right: 96px; min-height: 0; } .case-big { font-size: 28px; line-height: 36px; } }
 .cases .chart { max-height: 220px; }
+/* hero, lighter: one frame, no boxed stats, one red block in the headline */
+.hero .frame-art { opacity: .45; right: -360px; top: 160px; }
+.hero .frame-art polygon { stroke-width: 12; }
+.hero-logo svg { height: 44px; }
+@media (max-width: 767px) { .hero-logo svg { height: 32px; } .hero .frame-art { opacity: .2; } }
+.hero-copy { gap: 28px; }
+.hero .h1 { font-size: 52px; line-height: 60px; }
+@media (max-width: 767px) { .hero .h1 { font-size: 32px; line-height: 40px; } }
+.hero-side { gap: 0; padding-top: 96px; }
+.hero-side .stat { background: none; border: 0; border-top: 1px solid var(--line); padding: 28px 0; overflow: visible; }
+.hero-side .stat::after { display: none; }
+.hero-side .stat .big { font-size: 26px; line-height: 34px; }
+@media (max-width: 960px) { .hero-side { padding-top: 16px; } }
 </style>
 </head>
 <body>
@@ -351,7 +364,6 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   <section class="hero">
     <svg class="frame-art" viewBox="0 0 640 640" aria-hidden="true">
       <polygon points="230,40 620,40 410,600 20,600" style="stroke: var(--graphic-primary)"></polygon>
-      <polygon points="330,120 700,120 500,660 130,660" style="stroke: var(--graphic-secondary); opacity:.35"></polygon>
     </svg>
     <div class="wrap hero-grid">
       <div class="hero-copy">
@@ -369,8 +381,8 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
 <path d="M1349.77 122.924H1294.21C1281.49 122.924 1270.92 112.943 1270.92 100.717V78.5098C1270.92 66.2835 1281.49 56.3029 1294.21 56.3029H1349.77V38.5041H1291.72C1269.26 38.5041 1250.88 56.5524 1250.88 78.7593V100.135C1250.88 122.341 1269.18 140.14 1291.72 140.14H1349.77V122.674V122.924Z" fill="#F4F4F4"></path>
 <path d="M906.955 38.5041H906.706L863.706 107.62L820.706 38.5041H797.418V140.39H816.298L816.548 63.2061L854.058 123.173H873.52L911.28 63.2061V140.39H930.16V38.5041H907.122H906.955Z" fill="#F4F4F4"></path>
 </svg></div>
-        <span class="badge">2026 Google Premier Partner</span>
-        <h1 class="h1">Get <span class="hl">a lower CAC</span> you can defend to your management</h1>
+        <span class="label">2026 Google Premier Partner</span>
+        <h1 class="h1">Get a <span class="hl">lower CAC</span> you can defend to your management</h1>
         <p class="b1 lede muted">Your ads optimise for cheap leads because nobody told them which ones closed. We tell them.</p>
         <ul class="pillars">
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 10S4.5 4 10 4s8.5 6 8.5 6-3 6-8.5 6-8.5-6-8.5-6Z"/><path d="M10 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></svg><span><b>See the whole journey.</b> <span class="muted">From the first ad click to the signed contract, you'll know what's working.</span></span></li>
