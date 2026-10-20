@@ -326,6 +326,11 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
 .hero-side .stat::after { display: none; }
 .hero-side .stat .big { font-size: 26px; line-height: 34px; }
 @media (max-width: 960px) { .hero-side { padding-top: 16px; } }
+.clients a.name { font-size: 18px; font-weight: 600; letter-spacing: -.01em; color: var(--neutral-grey-blue); text-decoration: none; }
+.clients a.name:hover { color: var(--ink); }
+.clink { text-decoration: none; border-bottom: 1px solid currentColor; }
+.clink:hover { color: var(--ink); }
+.clients a.name.clink { border-bottom: 0; }
 </style>
 </head>
 <body>
@@ -397,7 +402,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
         <p class="cta-note">No cost, no obligation. You keep the findings.</p>
       </div>
       <div class="hero-side" aria-label="Results">
-        <div class="stat"><span class="label">Yango Drive</span><span class="big">−68% CAC in 8 months</span><span class="b3 muted">Cost per booking −72%, Google Ads, UAE</span></div>
+        <div class="stat"><span class="label"><a class="clink" href="https://drive.yango.com" target="_blank" rel="noopener">Yango Drive</a></span><span class="big">−68% CAC in 8 months</span><span class="b3 muted">Cost per booking −72%, Google Ads, UAE</span></div>
         <div class="stat"><span class="label">Built by</span><span class="big">Two ex-Google operators</span><span class="b3 muted">300+ businesses grown while at Google</span></div>
       </div>
     </div>
@@ -406,8 +411,8 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   <div class="clients">
     <div class="wrap">
       <span class="label">Trusted by</span>
-      <span class="name">Yango Drive</span><span class="name">LHV Bank</span><span class="name">Game of Bricks</span>
-      <span class="name">Metropolitan</span><span class="name">3S Money</span><span class="name">Evolution Aesthetics</span>
+      <a class="name clink" href="https://drive.yango.com" target="_blank" rel="noopener">Yango Drive</a><a class="name clink" href="https://www.lhv.ee" target="_blank" rel="noopener">LHV Bank</a><a class="name clink" href="https://gameofbricks.com" target="_blank" rel="noopener">Game of Bricks</a>
+      <span class="name">Metropolitan</span><a class="name clink" href="https://3s.money" target="_blank" rel="noopener">3S Money</a><span class="name">Evolution Aesthetics</span>
     </div>
   </div>
 
@@ -449,28 +454,28 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
       </div>
       <div class="grid-2 cases">
         <article class="case">
-          <div class="case-top"><span class="label">Yango Drive · Car rental · UAE</span><span class="case-big">−68% CAC in 8 months</span></div>
+          <div class="case-top"><span class="label"><a class="clink" href="https://drive.yango.com" target="_blank" rel="noopener">Yango Drive</a> · Car rental · UAE</span><span class="case-big">−68% CAC in 8 months</span></div>
           <div class="case-body">
             <svg class="chart" id="yangoChart" viewBox="0 0 320 170" role="img" aria-label="Cost per booking by month, December 2024 to August 2025, down 72%"></svg>
             <ul class="kpis"><li><b>−72%</b><span>cost per booking</span></li><li><b>+25%</b><span>bookings at the same cost after month one</span></li><li><b>+405%</b><span>Google Ads ROI</span></li></ul>
           </div>
         </article>
         <article class="case">
-          <div class="case-top"><span class="label">LHV Bank · Finance · UK</span><span class="case-big">+731% applications</span></div>
+          <div class="case-top"><span class="label"><a class="clink" href="https://www.lhv.ee" target="_blank" rel="noopener">LHV Bank</a> · Finance · UK</span><span class="case-big">+731% applications</span></div>
           <div class="case-body">
             <svg class="chart" id="lhvChart" viewBox="0 0 320 170" role="img" aria-label="Monthly applications against the November baseline: 1x in November, 5.1x in December, 8.3x in July"></svg>
             <ul class="kpis"><li><b>−73%</b><span>cost per application</span></li><li><b>−76.67%</b><span>CPA in the first month after the rebuild</span></li><li><b>+412%</b><span>applications in month one</span></li></ul>
           </div>
         </article>
         <article class="case">
-          <div class="case-top"><span class="label">Game of Bricks · Ecommerce · 8 markets</span><span class="case-big">USD 4.45M gross profit, +314%</span></div>
+          <div class="case-top"><span class="label"><a class="clink" href="https://gameofbricks.com" target="_blank" rel="noopener">Game of Bricks</a> · Ecommerce · 8 markets</span><span class="case-big">USD 4.45M gross profit, +314%</span></div>
           <div class="case-body">
             <svg class="chart" id="gobChart" viewBox="0 0 320 170" role="img" aria-label="Gross profit up 314% to USD 4.45M and contribution profit up 182% to USD 1.85M against the prior period"></svg>
             <ul class="kpis"><li><b>USD 1.85M</b><span>contribution profit, +182%</span></li><li><b>43.23%</b><span>gross margin</span></li><li><b>95%</b><span>conversion accuracy with server-side tracking</span></li></ul>
           </div>
         </article>
         <article class="case">
-          <div class="case-top"><span class="label">3S Money · Fintech · UK, UAE, Europe</span><span class="case-big">−55% CAC</span></div>
+          <div class="case-top"><span class="label"><a class="clink" href="https://3s.money" target="_blank" rel="noopener">3S Money</a> · Fintech · UK, UAE, Europe</span><span class="case-big">−55% CAC</span></div>
           <div class="case-body">
             <svg class="chart" id="tsmChart" viewBox="0 0 320 170" role="img" aria-label="Customer acquisition cost before and after, down 55%"></svg>
             <ul class="kpis"><li><b>−55%</b><span>customer acquisition cost</span></li><li><b>3</b><span>regions: UK, UAE and Europe</span></li><li><b>Fixed</b><span>conversion setup and geo-targeting</span></li></ul>
@@ -923,7 +928,8 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     el('svcPain').textContent = s.pain;
     el('svcSteps').innerHTML = s.steps.map(function (t) { return '<li><span>' + esc(t) + '</span></li>'; }).join('');
     el('svcProofLabel').textContent = s.proofLabel || 'Proof';
-    var proof = s.proof.map(function (p) { return '<div class="card"><h3 class="h4">' + esc(p[0]) + '</h3><p class="muted">' + esc(p[1]) + '</p></div>'; }).join('');
+    var CL = { 'Yango Drive': 'https://drive.yango.com', 'LHV Bank': 'https://www.lhv.ee', 'Game of Bricks': 'https://gameofbricks.com', '3S Money': 'https://3s.money' };
+    var proof = s.proof.map(function (p) { var n = CL[p[0]] ? '<a class="clink" href="' + CL[p[0]] + '" target="_blank" rel="noopener">' + esc(p[0]) + '</a>' : esc(p[0]); return '<div class="card"><h3 class="h4">' + n + '</h3><p class="muted">' + esc(p[1]) + '</p></div>'; }).join('');
     if (s.chart) proof = '<div class="card card-plain" style="grid-column:1/-1"><span class="label">Yango Drive · cost per booking, Dec 2024 to Aug 2025</span><svg class="chart" id="svcChart" viewBox="0 0 320 170" role="img" aria-label="Cost per booking by month, down 72%"></svg></div>' + proof;
     el('svcProof').innerHTML = proof;
     if (s.chart) chart(el('svcChart'));
