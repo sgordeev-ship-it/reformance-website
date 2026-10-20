@@ -157,6 +157,10 @@ header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
 .case-body { padding: 16px 32px 24px; }
 .case-foot { padding: 16px 32px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-muted); }
 .chart { width: 100%; height: auto; display: block; }
+.kpis { list-style: none; margin: 16px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); display: grid; gap: 10px; }
+.kpis li { display: grid; grid-template-columns: minmax(0, 7.5em) minmax(0, 1fr); gap: 12px; align-items: baseline; font-size: 14px; line-height: 20px; }
+.kpis b { font-weight: 600; font-size: 16px; font-variant-numeric: tabular-nums; }
+.kpis span { color: var(--ink-muted); }
 
 /* system diagram */
 .system { display: grid; gap: 12px; }
@@ -334,7 +338,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
         <p class="cta-note">No cost, no obligation. You keep the findings.</p>
       </div>
       <div class="hero-side" aria-label="Results">
-        <div class="stat"><span class="label">Yango Drive</span><span class="big">More than two-thirds lower cost per booking</span><span class="b3 muted">Google Ads, UAE car rental, 8 months</span></div>
+        <div class="stat"><span class="label">Yango Drive</span><span class="big">−68% CAC in 8 months</span><span class="b3 muted">Cost per booking AED 500 → 138, Google Ads, UAE</span></div>
         <div class="stat"><span class="label">Built by</span><span class="big">Two ex-Google operators</span><span class="b3 muted">300+ businesses grown while at Google</span></div>
       </div>
     </div>
@@ -360,7 +364,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
         <div class="symptom"><h3 class="h4">Clicks, not deals</h3><p class="muted">Your agency sends reports full of clicks, and nothing about deals.</p></div>
         <div class="symptom"><h3 class="h4">Broken trail</h3><p class="muted">You can't trace a closed deal back to the campaign that started it.</p></div>
       </div>
-      <p class="note-line b1">Yango Drive's dashboard showed one cost per customer. Once we tracked first rides, the real figure was about eight times higher. That gap is where your budget leaks.</p>
+      <p class="note-line b1">Yango Drive's dashboard said USD 93 per customer. Once we tracked first rides, the real number was USD 741. That gap is where your budget leaks.</p>
     </div>
   </section>
 
@@ -386,22 +390,28 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
       </div>
       <div class="grid-3">
         <article class="case">
-          <div class="case-top"><span class="label">Yango Drive · Car rental · UAE</span><span class="case-big">More than two-thirds lower CAC</span></div>
+          <div class="case-top"><span class="label">Yango Drive · Car rental · UAE</span><span class="case-big">−68% CAC in 8 months</span></div>
           <div class="case-body">
-            <svg class="chart" id="yangoChart" viewBox="0 0 320 140" role="img" aria-label="Cost per booking trend, December 2024 to August 2025, falling by more than two-thirds"></svg>
-            <p class="b3 muted" style="margin-top:12px">100+ campaigns consolidated into three themes, then migrated with DUALBUILD™ through the low season.</p>
+            <svg class="chart" id="yangoChart" viewBox="0 0 320 170" role="img" aria-label="Cost per booking by month, AED 500 in December 2024 to AED 138 in August 2025"></svg>
+            <ul class="kpis"><li><b>AED 500 → 138</b><span>cost per booking</span></li><li><b>+25%</b><span>bookings at the same cost after month one</span></li><li><b>+405%</b><span>Google Ads ROI</span></li></ul>
           </div>
-          <div class="case-foot">Google Ads · Dec 2024 to Aug 2025</div>
+          <div class="case-foot">Google Ads · Dec 2024 to Aug 2025 · budget scaled 38% to AED 1.1M</div>
         </article>
         <article class="case">
-          <div class="case-top"><span class="label">LHV Bank · Finance · UK</span><span class="case-big">Applications up more than eightfold</span></div>
-          <div class="case-body"><p class="muted">In a regulated market. We cleaned duplicate conversions first, rebuilt the account on clean data, then scaled only the most profitable products.</p></div>
-          <div class="case-foot">Google Ads · 10 months</div>
+          <div class="case-top"><span class="label">LHV Bank · Finance · UK</span><span class="case-big">+731% applications</span></div>
+          <div class="case-body">
+            <svg class="chart" id="lhvChart" viewBox="0 0 320 170" role="img" aria-label="Monthly applications against the November baseline: 1x in November, 5.1x in December, 8.3x in July"></svg>
+            <ul class="kpis"><li><b>−73%</b><span>cost per application</span></li><li><b>−76.67%</b><span>CPA in the first month after the rebuild</span></li><li><b>+412%</b><span>applications in month one</span></li></ul>
+          </div>
+          <div class="case-foot">Google Ads · Nov to Jul · regulated finance</div>
         </article>
         <article class="case">
-          <div class="case-top"><span class="label">Game of Bricks · Ecommerce · 8 markets</span><span class="case-big">Gross profit more than quadrupled</span></div>
-          <div class="case-body"><p class="muted">Server-side tracking that captures almost every sale, profit-tiered Shopping campaigns and value-based Performance Max across the US, UK and Europe.</p></div>
-          <div class="case-foot">Google Ads · 2023 to 2026</div>
+          <div class="case-top"><span class="label">Game of Bricks · Ecommerce · 8 markets</span><span class="case-big">USD 4.45M gross profit, +314%</span></div>
+          <div class="case-body">
+            <svg class="chart" id="gobChart" viewBox="0 0 320 170" role="img" aria-label="Gross profit up 314% to USD 4.45M and contribution profit up 182% to USD 1.85M against the prior period"></svg>
+            <ul class="kpis"><li><b>USD 1.85M</b><span>contribution profit, +182%</span></li><li><b>43.23%</b><span>gross margin</span></li><li><b>95%</b><span>conversion accuracy with server-side tracking</span></li></ul>
+          </div>
+          <div class="case-foot">Google Ads · Mar 2023 to Nov 2025 · USA, UK, DE, NL, ES, FR, CA, AU</div>
         </article>
       </div>
     </div>
@@ -484,7 +494,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
         <details><summary>Is there a minimum term?</summary><p class="ans">We work in quarters. Compounding results need a runway, so we don't take one-month tests.</p></details>
         <details><summary>Who works on my account?</summary><p class="ans">Ex-Google operators lead every account, with a specialist for tracking, Meta, LinkedIn or SEO where you need one.</p></details>
         <details><summary>Who owns the accounts and data?</summary><p class="ans">You do. Every ad account, pixel, tag and dashboard stays yours, including if we part ways.</p></details>
-        <details><summary>How fast will I see a change?</summary><p class="ans">Tracking fixes show in the data within weeks. Yango Drive booked more at the same cost after the first month on the new structure.</p></details>
+        <details><summary>How fast will I see a change?</summary><p class="ans">Tracking fixes show in the data within weeks. Yango Drive got 25% more bookings at the same cost after the first month on the new structure.</p></details>
       </div>
     </div>
   </section>
@@ -696,7 +706,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
       painH: 'Your ads are bidding blind',
       pain: "Without CRM data, Google and Meta chase the cheapest leads they can find. Real CAC per closed deal often runs three to five times higher than cost per lead suggests, and nobody can prove which campaign closed which deal. We fix your tracking before we touch your campaigns. If the data is wrong, every bid is a guess.",
       steps: ['Tracking audit: pixels, Google Tag Manager, consent mode and duplicate conversions.', 'Server-side tracking with a GTM server container and GA4, so ad blockers stop eating your data.', 'Click IDs captured into your CRM for every lead.', 'Lead stages (MQL, SQL, Closed Won) sent back as offline conversions to Google Ads, Meta and LinkedIn.', 'Monitoring and checks after every site release.'],
-      proof: [['Yango Drive', 'Its real cost per customer was several times higher than its dashboard showed.'], ['LHV Bank', 'Duplicate conversions were inflating its numbers. Once cleaned up and rebuilt, cost per application fell sharply within two months.'], ['Game of Bricks', 'Server-side tracking now captures almost every sale, even with ad blockers.']],
+      proof: [['Yango Drive', 'Dashboard CPA: USD 93. Real CPA, counting only first rides: USD 741.'], ['LHV Bank', 'Duplicate conversions removed, then a rebuild on clean data cut CPA by 76.67% within two months.'], ['Game of Bricks', 'Server-side tracking at 95% conversion accuracy, even with ad blockers.']],
       faq: [['Will it break our site or CRM?', 'Every change is tested before it goes live, and we check tracking again after each site release.'], ['How do you handle GDPR and consent?', 'Consent mode is part of the setup, so tracking respects each visitor\'s choice.'], ['How much developer time does it take?', 'We write the specs and do the tag work. Your developers usually only add a data layer and grant access.'], ['How long until the data is usable?', 'Most setups report clean data within weeks, then the algorithms start learning from it.']] },
     { id: 'google-ads', name: 'Google Ads', short: 'Search, Performance Max, Shopping',
       q: 'We doubled the Google budget. We didn\'t double the customers.',
@@ -707,8 +717,8 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
       pain: "Over-segmented accounts starve Google's AI of data. We've audited accounts running hundreds of ad groups and over a thousand ads, all pointing at one homepage. Bidding ends up chasing cheap leads instead of buyers.",
       steps: ['Account and tracking audit.', 'Consolidation into a few themes mapped to your revenue streams, so each campaign has enough data to learn.', 'DUALBUILD™ migration: the new structure runs beside the old one, so your main lead source never switches off.', 'VACUUM CLEANER™ bidding in competitive months, steering spend into temporary market gaps.', 'An experiment journal: 2 to 5 tested ideas a month on a fixed share of budget.'],
       chart: true,
-      proof: [['Yango Drive', 'Cost per booking fell by more than two-thirds in eight months, with bookings held through the low season.'], ['LHV Bank', 'Loan applications up more than eightfold in a regulated market, while scaling only the most profitable products.'], ['Game of Bricks', 'Gross profit more than quadrupled across 8 markets with profit-tiered Shopping and value-based Performance Max.']],
-      faq: [['Will a rebuild put our main lead source at risk?', 'No. With DUALBUILD™ the new campaigns run beside the old ones until the numbers prove the switch.'], ['Can you work in a regulated category?', 'Yes. LHV Bank grew in finance, where a compliance error costs more than a bad week.'], ['How soon will we see a change?', 'Yango Drive booked more at the same cost after the first month on the new structure.']] },
+      proof: [['Yango Drive', '−68% CAC in 8 months. Cost per booking AED 500 → 138, +25% bookings at the same cost after month one, +405% Google Ads ROI.'], ['LHV Bank', '+731% applications and −73% CPA in a regulated market, scaling only the most profitable products.'], ['Game of Bricks', 'Gross profit USD 4.45M (+314%) and contribution profit USD 1.85M (+182%) across 8 markets.']],
+      faq: [['Will a rebuild put our main lead source at risk?', 'No. With DUALBUILD™ the new campaigns run beside the old ones until the numbers prove the switch.'], ['Can you work in a regulated category?', 'Yes. LHV Bank grew in finance, where a compliance error costs more than a bad week.'], ['How soon will we see a change?', 'Yango Drive got 25% more bookings at the same cost after the first month on the new structure.']] },
     { id: 'meta-ads', name: 'Meta Ads', short: 'Lead quality fed back to Meta',
       q: 'Meta says ROAS is up. Finance says show me.',
       h1: 'Get Meta results <span class="hl">your finance team believes</span>',
@@ -787,19 +797,48 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   el('systemHub').innerHTML = systemHtml();
 
   // Yango index chart: shape only, no values (Dec 2024 = 100)
+  var F = 'font-family="Inter, sans-serif"';
+  function txt(x, y, t, o) { o = o || {}; return '<text x="' + x + '" y="' + y + '" ' + F + ' font-size="' + (o.s || 11) + '" fill="' + (o.c || 'var(--ink-muted)') + '"' + (o.a ? ' text-anchor="' + o.a + '"' : '') + (o.w ? ' font-weight="' + o.w + '"' : '') + '>' + t + '</text>'; }
+  // Yango Drive: real cost per booking, AED, Dec 2024 to Aug 2025 (case study)
   function chart(svg) {
-    var idx = [100, 74, 51, 56, 56, 46, 35, 31, 28], m = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
-    var W = 320, H = 140, l = 8, r = 312, t = 14, b = 112;
-    var x = function (i) { return l + i * (r - l) / (idx.length - 1); }, y = function (v) { return b - v / 105 * (b - t); };
-    var d = idx.map(function (v, i) { return (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(v).toFixed(1); }).join('');
+    var v = [500, 371, 254, 282, 280, 231, 176, 156, 138], m = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
+    var l = 34, r = 308, t = 18, b = 140, max = 550;
+    var x = function (i) { return l + i * (r - l) / (v.length - 1); }, y = function (n) { return b - n / max * (b - t); };
     var g = '';
-    [0, 50, 100].forEach(function (v) { g += '<line x1="' + l + '" x2="' + r + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="var(--line)" stroke-width="1"/>'; });
-    var lab = '<text x="' + l + '" y="132" fill="var(--ink-muted)" font-size="11" font-family="Inter, sans-serif">' + m[0] + '</text>' +
-      '<text x="' + r + '" y="132" text-anchor="end" fill="var(--ink-muted)" font-size="11" font-family="Inter, sans-serif">' + m[8] + '</text>';
+    [0, 250, 500].forEach(function (n) { g += '<line x1="' + l + '" x2="' + r + '" y1="' + y(n) + '" y2="' + y(n) + '" stroke="var(--line)"/>' + txt(l - 6, y(n) + 4, n, { a: 'end', s: 10 }); });
+    m.forEach(function (mm, i) { if (i % 2 === 0) g += txt(x(i), 160, mm, { a: 'middle', s: 10 }); });
+    var d = v.map(function (n, i) { return (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(n).toFixed(1); }).join('');
     svg.innerHTML = g + '<path d="' + d + '" fill="none" stroke="var(--red-core)" stroke-width="2.5"/>' +
-      '<circle cx="' + x(0) + '" cy="' + y(100) + '" r="4" fill="var(--red-core)"/><circle cx="' + x(8) + '" cy="' + y(28) + '" r="4" fill="var(--neutral-white)"/>' + lab;
+      '<circle cx="' + x(0) + '" cy="' + y(500) + '" r="4" fill="var(--red-core)"/><circle cx="' + x(8) + '" cy="' + y(138) + '" r="4" fill="var(--neutral-white)"/>' +
+      txt(x(0) + 8, y(500) + 4, 'AED 500', { c: 'var(--ink)', w: 600 }) + txt(x(8), y(138) - 10, 'AED 138', { a: 'end', c: 'var(--ink)', w: 600 });
   }
   chart(el('yangoChart'));
+  // LHV Bank: applications as a multiple of November (Dec +412%, Jul +731%, case study)
+  (function (svg) {
+    var d = [['Nov', 1, 'Baseline'], ['Dec', 5.12, '+412%'], ['Jul', 8.31, '+731%']];
+    var b = 140, t = 22, max = 9, bw = 56, gap = (320 - 3 * bw) / 4;
+    var h = '<line x1="0" x2="320" y1="' + b + '" y2="' + b + '" stroke="var(--line)"/>';
+    d.forEach(function (r, i) {
+      var x = gap + i * (bw + gap), hh = r[1] / max * (b - t), last = i === 2;
+      h += '<rect x="' + x + '" y="' + (b - hh) + '" width="' + bw + '" height="' + hh + '" fill="' + (last ? 'var(--red-core)' : i ? 'var(--red-medium, #b53139)' : 'var(--neutral-grey-dark)') + '"' + (i === 1 ? ' fill-opacity=".55"' : '') + '/>';
+      h += txt(x + bw / 2, b - hh - 8, r[2], { a: 'middle', c: 'var(--ink)', w: 600 }) + txt(x + bw / 2, 160, r[0], { a: 'middle', s: 10 });
+    });
+    svg.innerHTML = h;
+  })(el('lhvChart'));
+  // Game of Bricks: current vs prior period, USD M (prior derived from the stated growth)
+  (function (svg) {
+    var d = [['Gross profit', 4.45 / 4.14, 4.45, '+314%'], ['Contribution profit', 1.85 / 2.82, 1.85, '+182%']];
+    var b = 140, t = 24, max = 5, bw = 40;
+    var h = '<line x1="0" x2="320" y1="' + b + '" y2="' + b + '" stroke="var(--line)"/>';
+    d.forEach(function (r, i) {
+      var x0 = 30 + i * 150, hp = r[1] / max * (b - t), hc = r[2] / max * (b - t);
+      h += '<rect x="' + x0 + '" y="' + (b - hp) + '" width="' + bw + '" height="' + hp + '" fill="var(--neutral-grey-dark)"/>' + txt(x0 + bw / 2, b - hp - 6, '$' + r[1].toFixed(2) + 'M', { a: 'middle', s: 10 });
+      h += '<rect x="' + (x0 + bw + 8) + '" y="' + (b - hc) + '" width="' + bw + '" height="' + hc + '" fill="var(--red-core)"/>' + txt(x0 + bw + 8 + bw / 2, b - hc - 6, '$' + r[2].toFixed(2) + 'M', { a: 'middle', c: 'var(--ink)', w: 600 });
+      h += txt(x0 + bw + 4, 160, r[0] + ' ' + r[3], { a: 'middle', s: 10 });
+    });
+    h += '<rect x="196" y="6" width="8" height="8" fill="var(--neutral-grey-dark)"/>' + txt(208, 14, 'Prior', { s: 10 }) + '<rect x="244" y="6" width="8" height="8" fill="var(--red-core)"/>' + txt(256, 14, 'With us', { s: 10 });
+    svg.innerHTML = h;
+  })(el('gobChart'));
 
   function renderService(s) {
     el('svcName').textContent = s.name;
@@ -811,7 +850,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
     el('svcSteps').innerHTML = s.steps.map(function (t) { return '<li><span>' + esc(t) + '</span></li>'; }).join('');
     el('svcProofLabel').textContent = s.proofLabel || 'Proof';
     var proof = s.proof.map(function (p) { return '<div class="card"><h3 class="h4">' + esc(p[0]) + '</h3><p class="muted">' + esc(p[1]) + '</p></div>'; }).join('');
-    if (s.chart) proof = '<div class="card" style="grid-column:1/-1"><span class="label">Yango Drive · cost per booking, Dec 2024 to Aug 2025</span><svg class="chart" id="svcChart" viewBox="0 0 320 140" role="img" aria-label="Cost per booking falling by more than two-thirds"></svg></div>' + proof;
+    if (s.chart) proof = '<div class="card" style="grid-column:1/-1"><span class="label">Yango Drive · cost per booking in AED, Dec 2024 to Aug 2025</span><svg class="chart" id="svcChart" viewBox="0 0 320 170" role="img" aria-label="Cost per booking by month, AED 500 to AED 138"></svg></div>' + proof;
     el('svcProof').innerHTML = proof;
     if (s.chart) chart(el('svcChart'));
     el('svcFaq').innerHTML = s.faq.map(function (f) { return '<details><summary>' + esc(f[0]) + '</summary><p class="ans">' + esc(f[1]) + '</p></details>'; }).join('');
