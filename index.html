@@ -144,6 +144,13 @@ header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
 @media (max-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 .card { background: var(--surface-raised); border: 1px solid var(--line); padding: 32px; display: grid; gap: 12px; align-content: start; min-width: 0; }
 .symptom { border-top: 2px solid var(--accent); padding-top: 20px; display: grid; gap: 8px; }
+/* three problems, each closed by a client quote; subgrid lines the quotes up across columns */
+.problems { row-gap: 48px; }
+.problems .symptom { grid-row: span 3; grid-template-rows: subgrid; gap: 16px; align-content: start; }
+.symptom-q { margin: 8px 0 0; padding-left: 20px; border-left: 2px solid var(--line); display: grid; gap: 12px; align-self: start; }
+.symptom-q p { font-size: 18px; line-height: 28px; font-weight: 500; color: var(--ink); text-wrap: pretty; }
+.symptom-q cite { font-style: normal; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+@media (max-width: 960px) { .grid-3.problems { grid-template-columns: 1fr; } .problems .symptom { grid-row: auto; grid-template-rows: none; } }
 .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
 .step { position: relative; padding: 32px; border: 1px solid var(--line); display: grid; gap: 12px; align-content: start; }
@@ -524,14 +531,13 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   <section class="pad">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label">The problem</span>
-        <h2 class="h2">Your cost per lead looks fine. Your cost per customer <span class="hl">probably doesn't.</span></h2>
+        <span class="label">The core problem we solve</span>
+        <h2 class="h2">Wasted <span class="hl">spend</span></h2>
       </div>
-      <div class="grid-4">
-        <div class="symptom"><h3 class="h4">Wasted sales time</h3><p class="muted">Your sales team spends its week chasing leads that were never going to buy.</p></div>
-        <div class="symptom"><h3 class="h4">No answer for finance</h3><p class="muted">You're asked where the budget went, and the dashboard can't tell you.</p></div>
-        <div class="symptom"><h3 class="h4">Clicks, not deals</h3><p class="muted">Your agency sends reports full of clicks, and nothing about deals.</p></div>
-        <div class="symptom"><h3 class="h4">Broken trail</h3><p class="muted">You can't trace a closed deal back to the campaign that started it.</p></div>
+      <div class="grid-3 problems">
+        <div class="symptom"><h3 class="h4">You’re flying blind</h3><p class="muted">Google says one thing, Meta says another, and the CRM says something else again. You know you’re losing customers somewhere. You just can’t prove where.</p><blockquote class="symptom-q"><p>“Every month we spent more, and I still couldn’t answer the simplest question in the room: where are our clients actually coming from? Nothing was connected. I knew we were losing customers somewhere, I just couldn’t see where.”</p><cite>Head of Marketing, fintech, UK</cite></blockquote></div>
+        <div class="symptom"><h3 class="h4">You’re paying for clicks, not customers</h3><p class="muted">The leads look cheap on paper, while the cost of a real customer keeps climbing.</p><blockquote class="symptom-q"><p>“We gave another agency a month and almost ten thousand in ad spend. Not one patient walked through our door. Not one. You start wondering what you’re actually paying for.”</p><cite>Marketing Lead, aesthetics clinic, Dubai</cite></blockquote></div>
+        <div class="symptom"><h3 class="h4">Your agency has stopped fighting for you</h3><p class="muted">You want growth. Your agency is happy with the status quo.</p><blockquote class="symptom-q"><p>“We’re built to grow in multiples. Our marketer was comfortable with small, steady gains, and he couldn’t even explain to our developers what he needed. We were outgrowing him every single month.”</p><cite>Co-founder, healthtech platform, Central Asia</cite></blockquote></div>
       </div>
     </div>
   </section>
