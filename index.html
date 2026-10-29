@@ -86,7 +86,19 @@ header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
 .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 24px; }
 .logo { display: inline-flex; align-items: center; text-decoration: none; }
 .logo svg { height: 22px; width: auto; display: block; }
-.navlinks { display: flex; align-items: center; gap: 32px; }
+.navlinks { display: flex; align-items: center; gap: 32px; margin-left: auto; }
+.nav { justify-content: flex-start; }
+.nav-cta { flex: none; height: 40px; padding: 0 20px; }
+@media (max-width: 480px) { header.site .nav { gap: 8px; } header.site .logo svg { height: 14px; } header.site .nav-cta { padding: 0 10px; font-size: 12px; } header.site .menu-toggle { padding: 0 8px; } }
+/* Book a Meeting: the audit form opens in a dialog and goes back to its section on close */
+.book-dlg { width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 24px; border: 0; border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); }
+.book-dlg::backdrop { background: rgba(15, 19, 18, .72); }
+.book-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.book-head h2 { text-transform: uppercase; letter-spacing: .01em; }
+.book-x { width: 40px; height: 40px; flex: none; display: grid; place-items: center; background: none; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
+.book-x:hover { background: var(--surface-raised); }
+.book-dlg form.audit { padding: 24px; }
+@media (max-width: 480px) { .book-dlg { padding: 16px; } .book-dlg form.audit { padding: 16px; } }
 .navlinks > a, .navlinks > .dd > button { font: 400 16px/20px var(--font-sans); color: var(--ink); text-decoration: none; background: none; border: 0; padding: 8px 0; cursor: pointer; }
 .navlinks > a[aria-current="page"], .dd > button[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); }
 .dd { position: relative; }
@@ -97,7 +109,9 @@ header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
 .ddmenu a:hover { background: var(--neutral-grey-dark); }
 .menu-toggle { display: none; background: none; border: 1px solid var(--line); color: var(--ink); height: 40px; padding: 0 14px; border-radius: var(--radius-sm); font: 400 14px var(--font-sans); cursor: pointer; }
 @media (max-width: 960px) {
-  .menu-toggle { display: inline-flex; align-items: center; }
+  .menu-toggle { display: inline-flex; align-items: center; order: 3; }
+  .nav-cta { margin-left: auto; order: 2; }
+  .nav { gap: 12px; }
   .navlinks { display: none; position: absolute; top: 80px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--neutral-black); border-bottom: 1px solid var(--line);
     padding: 8px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px)); }
   .navlinks.open { display: flex; }
@@ -450,6 +464,7 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
       <a href="#about" data-nav="about">About Us</a>
       <a class="rf-btn rf-btn-small" href="#audit">Get Your Free Audit</a>
     </nav>
+    <button type="button" class="rf-btn rf-btn-small nav-cta" id="bookBtn" aria-haspopup="dialog" aria-controls="bookDlg">Book a Meeting</button>
   </div>
 </header>
 
@@ -840,13 +855,18 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
         <option value="" disabled selected>Main Problem</option>
         <option>Lead quality</option><option>Tracking and attribution</option><option>Rising CAC</option><option>Changing agency</option>
       </select><span class="chev"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></span></label>
-      <button class="rf-btn rf-btn-medium" type="submit">Get Your Free Audit <span aria-hidden="true">→</span></button>
+      <button class="rf-btn rf-btn-medium" type="submit">Book a Meeting <span aria-hidden="true">→</span></button>
       <div class="form-msg" id="formMsg" hidden></div>
     </form>
   </div>
 </section>
 
 </main>
+
+<dialog class="theme-red book-dlg" id="bookDlg" aria-labelledby="bookTitle">
+  <div class="book-head"><h2 class="h4" id="bookTitle">Book a meeting</h2><button type="button" class="book-x" id="bookClose" aria-label="Close">×</button></div>
+  <div id="bookSlot"></div>
+</dialog>
 
 <footer class="site">
   <div class="wrap">
@@ -1096,6 +1116,21 @@ footer.site { background: var(--neutral-black); border-top: 1px solid var(--line
   function show(v) { views.forEach(function (n) { n.hidden = n.getAttribute('data-view') !== v; }); }
   window.addEventListener('hashchange', route);
   route();
+
+  // Book a Meeting: move the audit form into the dialog, and back when it closes
+  var dlg = el('bookDlg'), form = el('auditForm'), home = document.createComment('auditForm');
+  el('bookBtn').addEventListener('click', function () {
+    if (!dlg.showModal) { location.hash = 'audit'; return; }
+    form.parentNode.insertBefore(home, form); el('bookSlot').appendChild(form);
+    el('navlinks').classList.remove('open'); el('menuToggle').setAttribute('aria-expanded', 'false');
+    dlg.showModal(); el('f-name').focus();
+  });
+  el('bookClose').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { // a click on the backdrop lands on the dialog element but outside its box
+    var r = dlg.getBoundingClientRect();
+    if (e.target === dlg && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) dlg.close();
+  });
+  dlg.addEventListener('close', function () { if (home.parentNode) home.parentNode.replaceChild(form, home); });
 
   el('menuToggle').addEventListener('click', function () {
     var o = el('navlinks').classList.toggle('open'); this.setAttribute('aria-expanded', o ? 'true' : 'false');
